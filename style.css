@@ -1,0 +1,14 @@
+body {
+  margin: 0;
+}
+.navbar {
+  background-color: #ff8000;
+  padding: 0;
+  height: 100px;
+}
+
+.navbar-logo {
+  width: 350px;
+  height: 80px;
+  object-fit: contain;
+}
