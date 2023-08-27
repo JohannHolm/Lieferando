@@ -6,7 +6,6 @@ body {
 .navbar {
   background-color: #ff8000;
   padding: 0;
-  height: 100px;
 }
 
 .navbar-logo {
@@ -38,4 +37,35 @@ input:focus {
   height: 50px;
   margin-right: 16px;
   margin-left: 300px;
+}
+
+.sidebar-right {
+  height: 1208px;
+  border-left: grey solid 2px;
+  box-shadow: 4px 4px 4px 4px grey;
+}
+
+.main-img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+.card {
+  margin-top: 4px;
+  display: flex;
+  flex-direction: row;
+}
+.btn-outline-primary {
+  width: 20px;
+}
+
+.card-body button {
+  text-align: center;
+}
+
+.btny {
+  --bs-btn-padding-y: 0;
+  --bs-btn-padding-x: 0;
+  margin-left: 2px;
 }
