@@ -1,5 +1,7 @@
 body {
   margin: 0;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 600;
 }
 .navbar {
   background-color: #ff8000;
@@ -11,4 +13,29 @@ body {
   width: 350px;
   height: 80px;
   object-fit: contain;
+}
+
+.input-navbar {
+  background-color: #ff8000;
+  color: white;
+  border: none;
+  border-bottom: solid 3px white;
+  text-align: center;
+  width: 300px;
+  font-size: 24px;
+}
+.input-navbar textarea:focus,
+input:focus {
+  outline: none;
+}
+
+::placeholder {
+  color: white;
+}
+
+.navbar-menu-logo {
+  width: 50px;
+  height: 50px;
+  margin-right: 16px;
+  margin-left: 300px;
 }
