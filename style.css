@@ -38,6 +38,9 @@ input:focus {
   margin-right: 16px;
   margin-left: 300px;
 }
+.navbar-menu-logo:hover {
+  cursor: pointer;
+}
 
 .sidebar-right {
   height: 1208px;
@@ -68,4 +71,49 @@ input:focus {
   --bs-btn-padding-y: 0;
   --bs-btn-padding-x: 0;
   margin-left: 2px;
+}
+
+.content {
+  display: flex;
+  flex-direction: row;
+  padding-left: 200px;
+  padding-right: 200px;
+}
+
+.main-box-meals {
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-navbar {
+  display: flex;
+  justify-content: flex-start;
+}
+.menu-navbar span {
+  text-decoration: none;
+  font-family: 'Roboto', sans-serif;
+  padding: 8px;
+  margin-right: 8px;
+  width: 80px;
+  height: 40px;
+  text-align: center;
+}
+
+.menu-navbar span:hover {
+  background-color: #8080802c;
+  border-radius: 12px;
+  transition: ease-in-out 5000ms, 0;
+  cursor: pointer;
+}
+
+.restaurant-logo {
+  width: 130px;
+  height: 87px;
+  object-fit: contain;
+  border-radius: 70px;
+  margin-top: -64px;
+}
+
+.border-bottom {
+  width: 100vh;
 }
