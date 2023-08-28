@@ -221,10 +221,12 @@ function generatePizzas() {
     html.innerHTML += /*html*/ `
     <div class="card">
                 <div class="card-body">
-                    <span>${pizza.name}</span>
-                    <span class="fw-light">${pizza.description}</span>
-                    <span>${pizza.price}€</span>
+                    <span class="fs-4">${pizza.name}</span>
+                    <span class="fw-lighter">${pizza.description}</span>
+                    <span class="fw-light fst-italic">Wahl aus: Standard, Ø 26cm, Maxi, Ø 32cm oder Wumbo, Ø 38cm.</span>
+                    <span class="fs-5">${pizza.price}€</span>
                 </div>
+                <button class="btn">+</button>
             </div>
   `;
   }
@@ -238,10 +240,12 @@ function generateSalads() {
     html.innerHTML += /*html*/ `
     <div class="card">
                 <div class="card-body">
-                    <span>${salad.name}</span>
-                    <span class="fw-light">${salad.description}</span>
-                    <span>${salad.price}€</span>
+                    <span class="fs-4">${salad.name}</span>
+                    <span class="fw-lighter">${salad.description}</span>
+                    <span class="fw-light fst-italic">Wahl aus: Standard, groß.</span>
+                    <span class="fs-5">${salad.price}€</span>
                 </div>
+                <button class="btn">+</button>
             </div>
   `;
   }
@@ -255,10 +259,12 @@ function generateBurger() {
     html.innerHTML += /*html*/ `
     <div class="card">
                 <div class="card-body">
-                    <span>${burger.name}</span>
-                    <span class="fw-light">${burger.description}</span>
-                    <span>${burger.price}€</span>
+                    <span class="fs-4">${burger.name}</span>
+                    <span class="fw-lighter">${burger.description}</span>
+                    <span class="fw-light fst-italic">Wahl aus: Menü oder einzeln</span>
+                    <span class="fs-5">${burger.price}€</span>
                 </div>
+                <button class="btn">+</button>
             </div>
   `;
   }
@@ -272,10 +278,12 @@ function generateChicken() {
     html.innerHTML += /*html*/ `
     <div class="card">
                 <div class="card-body">
-                    <span>${chick.name}</span>
-                    <span class="fw-light">${chick.description}</span>
-                    <span>${chick.price}€</span>
+                    <span class="fs-4">${chick.name}</span>
+                    <span class="fw-lighter">${chick.description}</span>
+                    <span class="fw-light fst-italic">Wahl aus: Hähnchengewürz oder Salz und Pfeffer.</span>
+                    <span class="fs-5">${chick.price}€</span>
                 </div>
+                <button class="btn">+</button>
             </div>
   `;
   }
@@ -289,11 +297,16 @@ function generateBeef() {
     html.innerHTML += /*html*/ `
     <div class="card">
                 <div class="card-body">
-                    <span>${meat.name}</span>
-                    <span class="fw-light">${meat.description}</span>
-                    <span>${meat.price}€</span>
+                    <span class="fs-4">${meat.name}</span>
+                    <span class="fw-lighter">${meat.description}</span>
+                    <span class="fw-light fst-italic">Wahl aus: rare, medium-rare, medium</span>
+                    <span class="fs-5">${meat.price}€</span>
                 </div>
+                <button class="btn">+</button>
             </div>
   `;
   }
 }
+
+let shoppingBasket = [];
+let prices = [];
