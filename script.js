@@ -226,7 +226,7 @@ function generatePizzas() {
                     <span class="fw-light fst-italic">Wahl aus: Standard, Ø 26cm, Maxi, Ø 32cm oder Wumbo, Ø 38cm.</span>
                     <span class="fs-5">${pizza.price}€</span>
                 </div>
-                <button class="btn">+</button>
+                <button onclick="addToBasket('${pizza.name}', ${pizza.price})" class="btn">+</button>
             </div>
   `;
   }
@@ -245,7 +245,7 @@ function generateSalads() {
                     <span class="fw-light fst-italic">Wahl aus: Standard, groß.</span>
                     <span class="fs-5">${salad.price}€</span>
                 </div>
-                <button class="btn">+</button>
+                <button onclick="addToBasket('${salad.name}', ${salad.price})" class="btn">+</button>
             </div>
   `;
   }
@@ -264,7 +264,7 @@ function generateBurger() {
                     <span class="fw-light fst-italic">Wahl aus: Menü oder einzeln</span>
                     <span class="fs-5">${burger.price}€</span>
                 </div>
-                <button class="btn">+</button>
+                <button onclick="addToBasket('${burger.name}', ${burger.price})" class="btn">+</button>
             </div>
   `;
   }
@@ -283,7 +283,7 @@ function generateChicken() {
                     <span class="fw-light fst-italic">Wahl aus: Hähnchengewürz oder Salz und Pfeffer.</span>
                     <span class="fs-5">${chick.price}€</span>
                 </div>
-                <button class="btn">+</button>
+                <button onclick="addToBasket('${chick.name}', ${chick.price})" class="btn">+</button>
             </div>
   `;
   }
@@ -302,11 +302,35 @@ function generateBeef() {
                     <span class="fw-light fst-italic">Wahl aus: rare, medium-rare, medium</span>
                     <span class="fs-5">${meat.price}€</span>
                 </div>
-                <button class="btn">+</button>
+                <button onclick="addToBasket('${meat.name}', ${meat.price})" class="btn">+</button>
             </div>
   `;
   }
 }
 
 let shoppingBasket = [];
-let prices = [];
+let sum = [];
+let counter = [];
+
+function addToBasket(name, price) {
+  sum.push(price);
+  document.getElementById('offcanvasRight').innerHTML += /*html*/ `
+  <div class="card">
+                <div class="card-body sidebar-card">
+                    <span>12x ${name}</span>
+                    <span>${price}€</span>
+                </div>
+            </div>
+  `;
+  generateSum();
+}
+
+function generateSum() {
+  for (let i = 0; i < sum.length; i++) {
+    let arraySum = 0;
+    sum.map((x) => (arraySum += x));
+    document.getElementById('sum-counter').innerHTML = /*html*/ `
+  <div>Gesamtpreis: ${arraySum}€</div>
+  `;
+  }
+}
