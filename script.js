@@ -308,29 +308,22 @@ function generateBeef() {
   }
 }
 
-let shoppingBasket = [];
+let shoppingBasketName = [];
+let shoppingBasketAmount = [];
+let shoppingBasketPrice = [];
 let sum = [];
-let counter = [];
 
 function addToBasket(name, price) {
-  sum.push(price);
-  document.getElementById('offcanvasRight').innerHTML += /*html*/ `
-  <div class="card">
-                <div class="card-body sidebar-card">
-                    <span>12x ${name}</span>
-                    <span>${price}€</span>
-                </div>
-            </div>
-  `;
-  generateSum();
+  let checkNameIndex = checkMenuExists(name);
+  if (checkNameIndex == -1) {
+    shoppingBasketName.push(name);
+    shoppingBasketPrice.push(price);
+    shoppingBasketAmount.push(1);
+  } else {
+    shoppingBasketAmount[checkNameIndex] += 1;
+  }
 }
 
-function generateSum() {
-  for (let i = 0; i < sum.length; i++) {
-    let arraySum = 0;
-    sum.map((x) => (arraySum += x));
-    document.getElementById('sum-counter').innerHTML = /*html*/ `
-  <div>Gesamtpreis: ${arraySum}€</div>
-  `;
-  }
+function checkMenuExists(name) {
+  return shoppingBasketName.indexOf(name);
 }
