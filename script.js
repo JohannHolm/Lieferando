@@ -322,8 +322,33 @@ function addToBasket(name, price) {
   } else {
     shoppingBasketAmount[checkNameIndex] += 1;
   }
+  updateShoppingBasket();
 }
 
 function checkMenuExists(name) {
   return shoppingBasketName.indexOf(name);
+}
+
+function updateShoppingBasket() {
+  clearShoppingBasket();
+  for (let i = 0; i < shoppingBasketName.length; i++) {
+    document.getElementById('offcanvasRight').innerHTML += /*html*/ `
+    <div class="card">
+                  <div class="card-body sidebar-card">
+                      <span>${shoppingBasketAmount[i]}x</span>
+                      <span>${shoppingBasketName[i]}</span>
+                      <span>${shoppingBasketPrice[i]}€</span>
+                  </div>
+              </div>
+    `;
+  }
+}
+
+function clearShoppingBasket() {
+  document.getElementById('offcanvasRight').innerHTML = /*html*/ ``;
+}
+
+function generateTotalSum() {
+  let summe = shoppingBasketPrice.reduce((pv, cv) => pv + cv);
+  return summe;
 }

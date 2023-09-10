@@ -131,10 +131,6 @@ input:focus {
   flex-direction: column;
 }
 
-.card-body span:last-child {
-  margin-top: 8px;
-}
-
 .sidebar-card {
   display: flex;
   align-items: center;
@@ -142,5 +138,6 @@ input:focus {
 }
 
 .sidebar-card span {
-  min-width: 25vh;
+  min-width: 8vh;
+  text-align: center;
 }
