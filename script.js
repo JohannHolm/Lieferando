@@ -335,13 +335,21 @@ function updateShoppingBasket() {
     document.getElementById('offcanvasRight').innerHTML += /*html*/ `
     <div class="card">
                   <div class="card-body sidebar-card">
-                      <span>${shoppingBasketAmount[i]}x</span>
+                      <span id="amount${i}">${
+      shoppingBasketAmount[i]
+    }x</span>
                       <span>${shoppingBasketName[i]}</span>
-                      <span>${shoppingBasketPrice[i]}€</span>
+                      <span>${calculateAmountAndPrice(i)}€</span>
                   </div>
               </div>
     `;
   }
+}
+
+function calculateAmountAndPrice(index) {
+  let amount = shoppingBasketAmount[index];
+  let price = shoppingBasketPrice[index];
+  return amount * price;
 }
 
 function clearShoppingBasket() {
