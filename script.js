@@ -207,7 +207,7 @@ let beef = [
       'Bestes Fleisch gegart bis es butterweich ist und zerfällt...',
   },
   {
-    name: 'Mettwurst',
+    name: 'Mettwurst asdasdasdbahsdasehaweha',
     price: '99',
     description: 'Mett mit Zwiebeln und Pfeffer...',
   },
@@ -332,7 +332,7 @@ function checkMenuExists(name) {
 function updateShoppingBasket() {
   clearShoppingBasket();
   for (let i = 0; i < shoppingBasketName.length; i++) {
-    document.getElementById('offcanvasRight').innerHTML += /*html*/ `
+    document.getElementById('shoppingBasket').innerHTML += /*html*/ `
     <div class="card">
                   <div class="card-body sidebar-card">
                       <span id="amount${i}">${
@@ -344,6 +344,7 @@ function updateShoppingBasket() {
               </div>
     `;
   }
+  generateTotalSum();
 }
 
 function calculateAmountAndPrice(index) {
@@ -353,10 +354,21 @@ function calculateAmountAndPrice(index) {
 }
 
 function clearShoppingBasket() {
-  document.getElementById('offcanvasRight').innerHTML = /*html*/ ``;
+  document.getElementById('shoppingBasket').innerHTML = /*html*/ ``;
+}
+
+function clearSumBasket() {
+  document.getElementById('sumBasketPrices').innerHTML = /*html*/ ``;
 }
 
 function generateTotalSum() {
-  let summe = shoppingBasketPrice.reduce((pv, cv) => pv + cv);
-  return summe;
+  clearSumBasket();
+  for (let i = 0; i < shoppingBasketName.length; i++) {
+    sum.shift();
+    sum.push(shoppingBasketPrice[i] * shoppingBasketAmount[i]); //fix sum
+  }
+  let summe = sum.reduce((pv, cv) => pv + cv);
+  document.getElementById('sumBasketPrices').innerHTML += /*html*/ `
+  <div class="card">Summe: ${summe}</div>
+  `;
 }

@@ -135,5 +135,15 @@ input:focus {
 
 .sidebar-card span {
   min-width: 8vh;
+  max-width: 8vh;
   text-align: center;
+}
+
+.sidebar-card span:nth-child(2) {
+  min-width: 10vh;
+  max-width: 10vh;
+}
+
+.sidebar-card span:last-child {
+  text-align: end;
 }
