@@ -339,18 +339,21 @@ function updateShoppingBasket() {
       shoppingBasketAmount[i]
     }x</span>
                       <span>${shoppingBasketName[i]}</span>
-                      <span>${calculateAmountAndPrice(i)}€</span>
+                      <span id="posPrice${i}">${calculateAmountAndPrice(
+      i
+    )}€</span>
                   </div>
               </div>
     `;
   }
-  generateTotalSum();
 }
 
 function calculateAmountAndPrice(index) {
   let amount = shoppingBasketAmount[index];
   let price = shoppingBasketPrice[index];
-  return amount * price;
+  let positionPrice = amount * price;
+  generateTotalSum(index);
+  return positionPrice;
 }
 
 function clearShoppingBasket() {
@@ -362,13 +365,13 @@ function clearSumBasket() {
 }
 
 function generateTotalSum() {
+  let sum = [];
   clearSumBasket();
   for (let i = 0; i < shoppingBasketName.length; i++) {
-    sum.shift();
-    sum.push(shoppingBasketPrice[i] * shoppingBasketAmount[i]); //fix sum
+    sum.push(shoppingBasketPrice[i] * shoppingBasketAmount[i]);
   }
   let summe = sum.reduce((pv, cv) => pv + cv);
-  document.getElementById('sumBasketPrices').innerHTML += /*html*/ `
+  document.getElementById('sumBasketPrices').innerHTML += `
   <div class="card">Summe: ${summe}</div>
   `;
 }
