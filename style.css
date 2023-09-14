@@ -134,16 +134,43 @@ input:focus {
 }
 
 .sidebar-card span {
-  min-width: 8vh;
-  max-width: 8vh;
+  width: 5vh;
   text-align: center;
 }
 
-.sidebar-card span:nth-child(2) {
+.sidebar-card span:nth-child(3) {
   min-width: 10vh;
   max-width: 10vh;
 }
 
 .sidebar-card span:last-child {
   text-align: end;
+}
+
+.sumBasket {
+  padding-left: 1vh;
+  margin-top: 8px;
+  word-spacing: 18vh;
+}
+
+#sumBasketPrices {
+  display: flex;
+  flex-direction: column;
+}
+
+.paybtn {
+  margin-left: 16px;
+  margin-right: 16px;
+  margin-top: 8px;
+  border-radius: 20px;
+}
+
+.basketButton {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  margin: 2px;
 }

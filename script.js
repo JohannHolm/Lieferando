@@ -207,7 +207,7 @@ let beef = [
       'Bestes Fleisch gegart bis es butterweich ist und zerfällt...',
   },
   {
-    name: 'Mettwurst asdasdasdbahsdasehaweha',
+    name: 'Mettwurst',
     price: '99',
     description: 'Mett mit Zwiebeln und Pfeffer...',
   },
@@ -333,19 +333,44 @@ function updateShoppingBasket() {
   clearShoppingBasket();
   for (let i = 0; i < shoppingBasketName.length; i++) {
     document.getElementById('shoppingBasket').innerHTML += /*html*/ `
-    <div class="card">
+    <div id="basketCard${i}" class="card">
                   <div class="card-body sidebar-card">
-                      <span id="amount${i}">${
-      shoppingBasketAmount[i]
-    }x</span>
+                      <span id="amount${i}">${shoppingBasketAmount[i]}x</span>
+                      <span class="basketButton">
+                         <button onclick="addMenuButton('${shoppingBasketName[i]}')" type="button" class="btn btn-outline-success basketButton">+</button>
+                         <button onclick="removeMenuButton('${shoppingBasketName[i]}', 'basketCard${i}', '${shoppingBasketAmount[i]}')" type="button" class="btn btn-outline-danger basketButton">-</button>
+                      </span>
                       <span>${shoppingBasketName[i]}</span>
-                      <span id="posPrice${i}">${calculateAmountAndPrice(
-      i
-    )}€</span>
+                      <span id="posPrice${i}">${calculateAmountAndPrice(i)}€</span>
                   </div>
               </div>
     `;
   }
+}
+
+function addMenuButton(name) { 
+  let basketName = shoppingBasketName.indexOf(name);
+  shoppingBasketAmount[basketName] += 1;
+  updateShoppingBasket();
+}
+
+function removeMenuButton(name, cardNr, amount) {
+  let basketName = shoppingBasketName.indexOf(name);
+  let card = document.getElementById(cardNr);
+if (amount == 1) {
+  card.remove();
+  shoppingBasketName.splice(basketName, 1);
+  shoppingBasketAmount.splice(basketName, 1);
+  shoppingBasketPrice.splice(basketName, 1);
+  
+}
+else {
+  shoppingBasketAmount[basketName] -= 1;
+  
+}
+updateShoppingBasket();
+generateTotalSum();
+
 }
 
 function calculateAmountAndPrice(index) {
@@ -371,7 +396,8 @@ function generateTotalSum() {
     sum.push(shoppingBasketPrice[i] * shoppingBasketAmount[i]);
   }
   let summe = sum.reduce((pv, cv) => pv + cv);
-  document.getElementById('sumBasketPrices').innerHTML += `
-  <div class="card">Summe: ${summe}</div>
+  document.getElementById('sumBasketPrices').innerHTML += /*html*/ `
+  <div class="card sumBasket fw-medium fs-6">Gesamt: ${summe}€</div>
+   <button type="button" class="btn btn-warning paybtn fw-medium">Bezahlen (${summe}€)</button>
   `;
 }
