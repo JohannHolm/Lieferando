@@ -368,8 +368,9 @@ else {
   shoppingBasketAmount[basketName] -= 1;
   
 }
+clearSumBasket();
 updateShoppingBasket();
-generateTotalSum();
+
 
 }
 
