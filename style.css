@@ -254,17 +254,19 @@ overflow-x: hidden;
     height: 50px;
   }
 
-  .offcanvas.offcanvas-end {
+  .offcanvas
+  .offcanvas-end {
     width: 100vh;
   }
 
-  .sidebar-card {
+  .sidebar-card span:first-child{
     justify-content: center;
+    width: 5vh;
   }
   
 }
 
-@media (max-width: 576px) {
+@media (max-width: 768px) {
   .content {
     padding: 0;
     justify-content: center;
@@ -379,10 +381,10 @@ overflow-x: hidden;
   }
 
   .offcanvas.offcanvas-end {
-    width: 100vh;
+    width: 40vh;
   }
   
   .sidebar-card {
-    justify-content: center;
+    justify-content: flex-start;
   }
 }
